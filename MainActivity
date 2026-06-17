@@ -1,0 +1,43 @@
+package com.example.cadastro;
+
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        EditText edtNome = findViewById(R.id.edtNome);
+        EditText edtIdade = findViewById(R.id.edtIdade);
+        Button btnMostrar = findViewById(R.id.btnMostrar);
+        TextView txtResultado = findViewById(R.id.txtResultado);
+
+        btnMostrar.setOnClickListener(v -> {
+
+            String nome = edtNome.getText().toString().trim();
+            String idadeTexto = edtIdade.getText().toString().trim();
+
+            if (nome.isEmpty() || idadeTexto.isEmpty()) {
+                txtResultado.setText(R.string.preencha_campos);
+                return;
+            }
+
+            int idade = Integer.parseInt(idadeTexto);
+
+            Pessoa pessoa = new Pessoa(nome, idade);
+
+            String resultado = pessoa.apresentar()
+                    + "\n"
+                    + pessoa.verificarMaiorIdade();
+
+            txtResultado.setText(resultado);
+        });
+    }
+}
