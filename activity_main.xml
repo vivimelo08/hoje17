@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="#F5F5F5">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cadastro de Pessoa"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp" />
+
+    <EditText
+        android:id="@+id/edtNome"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:hint="Digite o nome"
+        android:inputType="textPersonName"
+        android:autofillHints="name"
+        android:layout_marginBottom="10dp" />
+
+    <EditText
+        android:id="@+id/edtIdade"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:hint="Digite a idade"
+        android:inputType="number"
+        android:importantForAutofill="no"
+        android:layout_marginBottom="15dp" />
+
+    <Button
+        android:id="@+id/btnMostrar"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:text="Mostrar Dados"
+        android:backgroundTint="#2196F3"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="20dp" />
+
+    <TextView
+        android:id="@+id/txtResultado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#333333"
+        android:gravity="center"
+        android:textAlignment="center" />
+
+</LinearLayout>
