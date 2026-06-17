@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
         EditText edtNome = findViewById(R.id.edtNome);
         EditText edtIdade = findViewById(R.id.edtIdade);
+        EditText edtCurso = findViewById(R.id.edtCurso);
         Button btnMostrar = findViewById(R.id.btnMostrar);
         TextView txtResultado = findViewById(R.id.txtResultado);
 
@@ -23,19 +24,25 @@ public class MainActivity extends AppCompatActivity {
 
             String nome = edtNome.getText().toString().trim();
             String idadeTexto = edtIdade.getText().toString().trim();
+            String nomeCurso = edtCurso.getText().toString().trim();
 
-            if (nome.isEmpty() || idadeTexto.isEmpty()) {
-                txtResultado.setText(R.string.preencha_campos);
+            if (nome.isEmpty()
+                    || idadeTexto.isEmpty()
+                    || nomeCurso.isEmpty()) {
+
+                txtResultado.setText("Preencha todos os campos!");
                 return;
             }
 
             int idade = Integer.parseInt(idadeTexto);
 
             Pessoa pessoa = new Pessoa(nome, idade);
+            Curso curso = new Curso(nomeCurso);
 
-            String resultado = pessoa.apresentar()
-                    + "\n"
-                    + pessoa.verificarMaiorIdade();
+            String resultado =
+                    pessoa.apresentar() + "\n" +
+                    curso.apresentarCurso() + "\n" +
+                    pessoa.verificarMaiorIdade();
 
             txtResultado.setText(resultado);
         });
